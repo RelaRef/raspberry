@@ -4,10 +4,15 @@ import urllib.parse
 
 
 def stdin_as_text():
-    encoded = b''
+    txt = ""
     for line in sys.stdin:
-        encoded += line
-    return encoded
+        txt += line
+    return txt
+
+
+def stdin_as_byte():
+    txt = stdin_as_text()
+    return txt.encode()
 
 
 def get(url, key, value):
