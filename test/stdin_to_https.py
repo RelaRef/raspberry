@@ -5,7 +5,7 @@ import config.globals
 from lib.latest import post
 
 Config = configparser.ConfigParser()
-Config.read('config/' + config.globals.configfile)
+Config.read('../config/' + config.globals.configfile)
 
 
 def main():
