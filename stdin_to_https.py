@@ -16,6 +16,7 @@ def main():
     value = base64.b64encode(stdin_as_byte())
 
     try:
+        result = 0
         while result != 200:
             time.sleep(1)
             result = post(url, key, value)
