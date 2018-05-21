@@ -1,0 +1,1 @@
+configfile = 'global.settings.ini'
