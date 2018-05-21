@@ -5,6 +5,7 @@ import config.globals
 from lib.latest import post
 from lib.latest import stdin_as_byte
 import time
+import sys
 
 Config = configparser.ConfigParser()
 Config.read('config/' + config.globals.configfile)
@@ -27,3 +28,4 @@ def main():
 
 
 main()
+sys.exit()
