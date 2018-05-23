@@ -4,8 +4,7 @@ import configparser
 import config.globals
 from lib.latest import post
 from lib.latest import stdin_as_byte
-import time
-import sys
+
 
 Config = configparser.ConfigParser()
 Config.read('config/' + config.globals.configfile)
@@ -16,16 +15,9 @@ def main():
     key = Config.get('stdin', config.globals.raspberryStdInPostId)
     value = base64.b64encode(stdin_as_byte())
 
-    try:
-        result = 0
-        while result != 200:
-            time.sleep(1)
-            result = post(url, key, value)
-    except:
-        print('Exception.')
+    result = post(url, key, value)
 
     print(result)
 
 
 main()
-sys.exit()
