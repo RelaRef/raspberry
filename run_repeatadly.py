@@ -28,6 +28,6 @@ while loop:
 
     print(result)
 
-    if result.find("200"):
+    if result.find("200") >= 0:
         break
     sleep(10)
