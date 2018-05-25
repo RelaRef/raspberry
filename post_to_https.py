@@ -5,14 +5,13 @@ import config.globals
 from lib.latest import post
 
 
-Config = configparser.ConfigParser()
-Config.read('config/' + config.globals.configfile)
+def do(value):
+    conf = configparser.ConfigParser()
+    conf.read('config/' + config.globals.configfile)
 
-
-def send(value):
-    url = Config.get('stdin', config.globals.raspberryStdInPostToUrl)
-    key = Config.get('stdin', config.globals.raspberryStdInPostId)
-    value = base64.b64encode(value)
+    url = conf.get('stdin', config.globals.raspberryStdInPostToUrl)
+    key = conf.get('stdin', config.globals.raspberryStdInPostId)
+    value = base64.b64encode(value.encode())
 
     result = post(url, key, value)
 
