@@ -11,7 +11,10 @@ def do(value):
 
     url = conf.get('stdin', config.globals.raspberryStdInPostToUrl)
     key = conf.get('stdin', config.globals.raspberryStdInPostId)
-    value = base64.b64encode(value.encode())
+    if str(type(value)).find("byte"):
+        value = base64.b64encode(value)
+    else:
+        value = base64.b64encode(value.encode())
 
     result = post(url, key, value)
 
