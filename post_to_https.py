@@ -15,4 +15,4 @@ def do(value):
 
     result = post(url, key, value)
 
-    print(result)
+    return result
